@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quendoris1v7jcxzkgtd9geq7ran.duckdns.org/sitemap.xml

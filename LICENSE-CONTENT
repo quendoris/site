@@ -1,0 +1,17 @@
+Quendoris site presentation, original site text, and original diagrams:
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+Canonical full license: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+Credit the author(s) of each publication, cite the original page or version,
+link to CC BY 4.0, and indicate adaptations. Third-party materials retain
+their original terms.
+
+The PDF stored at dist/publications/constructive-million/v1.0.0/article.pdf
+carries its own author/license notice and retains its independent signature
+and provenance in quendoris/papers. The content of this site package does not
+include its detached Minisign signature.
+
+Code, tests, and deployment scripts in tools/ are separately Apache-2.0:
+see LICENSE-CODE.
