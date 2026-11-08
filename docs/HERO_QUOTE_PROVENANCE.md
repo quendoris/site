@@ -37,7 +37,7 @@ The immediate context is a warning against treating unfamiliar or unobserved thi
 
 ## Website transcription contract
 
-- Preserve exactly the 70-character original Latin wording, including spelling and question mark, and set `lang="la"` on the single homepage H1.
+- Preserve exactly the 60-character original Latin wording, including spelling and question mark, and set `lang="la"` on the single homepage H1.
 - Set the exact chosen Russian translation, visually smaller but accessible; set `lang="ru"`.
 - Credit author, work, Book VII §6, and **I век н. э.** with a link to primary Latin text.
 - Keep Quendoris's own explanation **below** the quotation, not presented as words of Pliny.
