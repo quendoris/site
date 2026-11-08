@@ -53,6 +53,22 @@ def main():
  import hashlib
  ok(hashlib.sha256(pdf).hexdigest()=="6c4a941a71695cd96d7445ad6de601aeea5cbf59477812a9b0bfab899d215e47",
     "historic published PDF digest changed")
+ # Prevent reintroducing the v0.4 visual regression: gradient imprisoned in a card.
+ css=(ROOT/'dist/assets/atmosphere.css').read_text(encoding="utf-8")
+ ok("v0.5 visual correction" in css,"reference B recovery layer missing")
+ ok("grid-template-columns:minmax(0,1.045fr) minmax(0,.955fr)" in css,
+    "full-bleed B hero layout no longer declared")
+ ok("max-width:none" in css and ".hero .hero-layout" in css,
+    "full-width editorial split not declared")
+ ok("border-left:1px solid var(--q-rule)" in css,
+    "field/typographic border missing")
+ ok("radial-gradient(ellipse 75% 95%" in css,
+    "background environment missing behind Latin quotation")
+ ok("@media(max-width:760px)" in css and
+    ".hero .hero-layout{grid-template-columns:minmax(0,1fr)}" in css,
+    "mobile full-bleed split collapse missing")
+ ok('class="text-link" style="color:#d0f0e9' not in h,
+    "obsolete inline link color bypasses theme contrast")
  for err in errors:print("FAIL:",err,file=sys.stderr)
  if errors:return 1
  print("OK: Pliny original, exact mark, 5 routes, atmosphere source, offline constraints, PDF preserved")
