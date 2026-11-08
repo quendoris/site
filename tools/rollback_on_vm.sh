@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Invoke from Arch over SSH ProxyJump after choosing a known previously deployed version.
 set -euo pipefail
-TARGET="${1:?Usage: rollback_on_vm.sh initial|v0.3-<commit12>}"
-[[ "$TARGET" == initial || "$TARGET" =~ ^v0\.3-[0-9a-f]{12}$ ]] || { echo 'Invalid release id' >&2; exit 2; }
+TARGET="${1:?Usage: rollback_on_vm.sh initial|v0.3-<commit12>|v0.4-<commit12>}"
+[[ "$TARGET" == initial || "$TARGET" =~ ^v0\.(3|4)-[0-9a-f]{12}$ ]] || { echo 'Invalid release id' >&2; exit 2; }
 ROOT=/srv/public-site
 DIR="$ROOT/releases/$TARGET"
 sudo -n test -d "$DIR" || { echo 'Unknown release' >&2; exit 3; }
