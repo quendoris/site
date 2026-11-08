@@ -1,3 +1,20 @@
+# Quendoris B v0.6 — source-faithful deployment (2026-11-08)
+
+The exact accepted B v0.2 source (original HTML, CSS, particles and logo) is
+stored under `design/reference-b-v06/`; its generated five site pages and seven
+assets reside in `dist/`. Dark scene 01 deliberately does not override B's
+reference geometry. The recovered v0.3 web release remains available for
+rollback. Preserve the historical scientific PDF digest.
+
+The trusted Arch deployment workflow is unchanged except for the release label
+`v0.6-<commit12>`; activate only from a pinned 40-character verified GitHub
+commit. GitHub push/merge alone does not update the home server. On failure,
+revert the current symlink to the previously read live release via
+`tools/rollback_on_vm.sh`. A public GET of the actual homepage and B assets
+must be checked, not just HTTP 200 or HEAD response.
+
+---
+
 # v0.4 upgrade: Pliny and the Quendoris atmospheric visual system
 
 The original procedure below describes the historical v0.3 initial release. For a **v0.4** update, deploy a reviewed, merged, immutable GitHub commit using the existing trusted Arch workstation:

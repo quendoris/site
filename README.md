@@ -1,3 +1,12 @@
+# Exact visual source B v0.6 — live-site release
+
+Five HTML pages and seven B assets generated directly from the original accepted files.
+Original source: `design/reference-b-v06/`. Run `python3 tools/check_site.py`,
+`python3 tools/check_atmosphere.py`, and the source regression tests.
+Previous v0.3 remains the known-good fallback. No server is updated by Git.
+
+---
+
 # Quendoris Research — static site
 
 Publication-ready static website for the Quendoris research archive. This repository holds the **site bytes and source-controlled deployment tooling**. Scientific papers retain independent provenance in [quendoris/papers](https://github.com/quendoris/papers) and algorithm implementations in their own research repositories.

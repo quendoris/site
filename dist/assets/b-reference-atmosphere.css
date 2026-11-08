@@ -1,0 +1,70 @@
+/* Quendoris B extension: source reference base.css / b.css stay BYTE IDENTICAL.
+   This file is an additive, opt-in light-theme and visit-field layer.
+   Dark scene 01 intentionally has zero hero/font/layout overrides. */
+:root { color-scheme: dark; }
+.mast .atmo-switch { position:relative; margin-left:auto; font-size:.73rem; font-family:ui-monospace,Consolas,monospace; flex:none; }
+.atmo-switch summary { list-style:none; border:1px solid var(--line); padding:9px 12px; cursor:pointer; white-space:nowrap; }
+.atmo-switch summary::-webkit-details-marker { display:none; }
+.atmo-switch summary span { padding-left:12px; color:var(--highlight); }
+.atmo-switch[open] summary { border-color:var(--highlight); }
+.atmo-menu { position:absolute; z-index:11; right:0; top:calc(100% + 7px); width:240px; max-width:calc(100vw - 24px); padding:17px; background:#17272b; color:#eef2e7; border:1px solid var(--line); box-shadow:0 16px 36px #07111270; }
+.atmo-menu label { display:block; margin-bottom:9px; color:#d3e08b; font:650 .69rem/1.4 ui-monospace,monospace; letter-spacing:.06em; }
+.atmo-menu select { width:100%; padding:10px; color:inherit; background:#22383b; border:1px solid #637b75; font:inherit; }
+.atmo-menu button { margin-top:12px; padding:10px 11px; color:inherit; background:transparent; border:1px solid #667971; cursor:pointer; font:inherit; }
+.atmo-menu button+button { margin-left:7px; }
+.atmo-menu p { margin:12px 0 0; font-size:.64rem; line-height:1.5; color:#bbcec2; }
+.atmo-menu button:focus-visible,.atmo-menu select:focus-visible,.atmo-switch summary:focus-visible { outline:2px solid var(--highlight); outline-offset:3px; }
+/* Dark scene 01 is not styled here: the exact reference takes precedence. */
+html[data-qtheme="dark"][data-qscene="2"] .identity-field { background:radial-gradient(ellipse at 67% 28%,#4e6766 0%,#203a40 36%,#162832 83%); }
+html[data-qtheme="dark"][data-qscene="3"] .identity-field { background:radial-gradient(ellipse at 77% 19%,#55716c 0%,#254048 35%,#112630 82%); }
+html[data-qtheme="dark"][data-qscene="4"] .identity-field { background:radial-gradient(ellipse at 71% 34%,#536466 0%,#243b46 39%,#15252e 86%); }
+html[data-qtheme="dark"][data-qscene="5"] .identity-field { background:radial-gradient(ellipse at 61% 23%,#556f66 0%,#28413e 41%,#13272d 85%); }
+html[data-qtheme="dark"][data-qscene="6"] .identity-field { background:radial-gradient(ellipse at 83% 29%,#4f6c71 0%,#263d43 38%,#14252f 87%); }
+html[data-qtheme="dark"][data-qscene="2"] .field-dots { opacity:.76; }
+html[data-qtheme="dark"][data-qscene="3"] .field-dots { opacity:.90; }
+html[data-qtheme="dark"][data-qscene="4"] .field-dots { opacity:.81; }
+html[data-qtheme="dark"][data-qscene="5"] .field-dots { opacity:.73; }
+html[data-qtheme="dark"][data-qscene="6"] .field-dots { opacity:.89; }
+
+/* Light is a separate colour atmosphere, NOT a recolour of the dark reference. */
+html[data-qtheme="light"] { color-scheme: light; --ink:#22332f;--line:#becbc5;--highlight:#476f58;--focus:#446e55;--action-bg:#456b56;--action-text:#fffdf6;--action-hover:#28483d;--action-hover-text:#fffdf7;--orbit:#57776a55;--formula-bg:#e4ebe4;--dots-opacity:.6; }
+html[data-qtheme="light"] body.variant-b { background:#f2f2e9; color:#20302d; }
+html[data-qtheme="light"] .mast { background:#eaece4; }
+html[data-qtheme="light"] .wordmark small { color:#586c62; }
+html[data-qtheme="light"] .mast .lab-jump { color:var(--ink); }
+html[data-qtheme="light"] .mast a[aria-current="page"],html[data-qtheme="light"] .kicker,html[data-qtheme="light"] .section-caption>span,html[data-qtheme="light"] .index,html[data-qtheme="light"] .state { color:#426c55; }
+html[data-qtheme="light"] .home-hero { background:radial-gradient(circle at 15% 0%,#e6ebe3 0%,#f4f3ed 55%); }
+html[data-qtheme="light"] .historic-hero .historical-translation,html[data-qtheme="light"] .historic-hero .historical-source { color:#516860; }
+html[data-qtheme="light"] .historic-hero .historical-source a { color:#315f48; }
+html[data-qtheme="light"] .historic-hero .hero-rail { color:#536c63; }
+html[data-qtheme="light"] .identity-field { background:radial-gradient(ellipse at 73% 24%,#afc3b8 0%,#e0ebe1 35%,#f1eee6 83%); }
+html[data-qtheme="light"][data-qscene="2"] .identity-field { background:radial-gradient(ellipse at 67% 28%,#b1c4ba 0%,#e4eadd 38%,#f4f0e7 85%); }
+html[data-qtheme="light"][data-qscene="3"] .identity-field { background:radial-gradient(ellipse at 77% 19%,#b3cebf 0%,#e1eae3 39%,#f7f2e7 84%); }
+html[data-qtheme="light"][data-qscene="4"] .identity-field { background:radial-gradient(ellipse at 71% 34%,#bbc6c1 0%,#e9e9e5 38%,#f4efe5 87%); }
+html[data-qtheme="light"][data-qscene="5"] .identity-field { background:radial-gradient(ellipse at 61% 23%,#b9cbb1 0%,#e5ece0 40%,#f5f2e9 86%); }
+html[data-qtheme="light"][data-qscene="6"] .identity-field { background:radial-gradient(ellipse at 83% 29%,#b6cbcc 0%,#e1e8e7 38%,#f4f0e5 88%); }
+html[data-qtheme="light"] .mark-hero stop:first-child { stop-color:#47675b; }
+html[data-qtheme="light"] .mark-hero stop:last-child { stop-color:#e3e8bb; }
+html[data-qtheme="light"] .identity-field .mark-hero { filter:drop-shadow(0 0 22px #ffffff48); }
+html[data-qtheme="light"] .field-orbit { border-color:#456d6850; }
+html[data-qtheme="light"] .post-quote { background:#e7eae2; }
+html[data-qtheme="light"] .post-quote .post-quote-index { color:#39674e; }
+html[data-qtheme="light"] .post-quote>p:last-child { color:#33463e; }
+html[data-qtheme="light"] .publication-feature { background:#f0f2e9; }
+html[data-qtheme="light"] .research-section { background:#f7f6f0; }
+html[data-qtheme="light"] .research-row p { color:#456358; }
+html[data-qtheme="light"] .research-row:nth-child(1) { border-left-color:#52775a; }
+html[data-qtheme="light"] .research-row:hover { background:#d2decb33; }
+html[data-qtheme="light"] .number-ledger { border-top-color:#527a62; }
+html[data-qtheme="light"] .number-ledger strong,html[data-qtheme="light"] .study-ledger strong { color:#2d5848; }
+html[data-qtheme="light"] .pledge { background:#d5e28f; color:#172821; }
+html[data-qtheme="light"] .inside-title { background:radial-gradient(ellipse at 100% 0%,#e4ebe3,#f2f2e9 70%); }
+html[data-qtheme="light"] .checksum { color:#2b5947; }
+html[data-qtheme="light"] .formula { color:#1b332d; }
+html[data-qtheme="light"] .study-sidebar { border-top-color:#537963; }
+html[data-qtheme="light"] .atmo-menu { background:#f4f5eb; color:#26392e; border-color:#a9bdb0; box-shadow:0 16px 36px #364a3730; }
+html[data-qtheme="light"] .atmo-menu label { color:#37644d; }
+html[data-qtheme="light"] .atmo-menu select,html[data-qtheme="light"] .atmo-menu button { color:#24382c; background:#fffef9; border-color:#a6b8ab; }
+html[data-qtheme="light"] .atmo-menu p { color:#486354; }
+@media(max-width:740px){.mast .atmo-switch { margin-left:auto; }.atmo-menu{right:0;}.mast nav{scrollbar-width:thin;} }
+@media(prefers-reduced-motion:reduce){ .atmo-menu * { transition:none!important; } }
