@@ -6,7 +6,7 @@ RELEASE_ID="${1:?release id required}"
 EXPECTED_SHA="${2:?tar sha required}"
 TAR_PATH="${3:?uploaded tar path required}"
 
-[[ "$RELEASE_ID" =~ ^v0\.3-[0-9a-f]{12}$ ]] || { echo 'Invalid release id' >&2; exit 2; }
+[[ "$RELEASE_ID" =~ ^v0\.(3|4)-[0-9a-f]{12}$ ]] || { echo 'Invalid release id' >&2; exit 2; }
 [[ "$EXPECTED_SHA" =~ ^[0-9a-f]{64}$ ]] || { echo 'Invalid tar checksum' >&2; exit 2; }
 [[ "$TAR_PATH" =~ ^/tmp/quendoris-site-[A-Za-z0-9]+\.tar$ ]] || { echo 'Unexpected tar path' >&2; exit 2; }
 [[ -f "$TAR_PATH" && ! -L "$TAR_PATH" ]] || { echo 'Missing tar archive' >&2; exit 2; }
