@@ -1,0 +1,24 @@
+name: Quendoris static-site audit
+on:
+  push:
+    branches: [ main, "feature/**" ]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify pinned PDF, full manifest and all local URLs
+        run: |
+          python3 tools/check_site.py
+          sha256sum -c SHA256SUMS
+      - name: Verify immutable identity and historical hero
+        run: python3 tools/check_atmosphere.py
+      - name: JavaScript syntax
+        run: node --check dist/assets/atmosphere.js
