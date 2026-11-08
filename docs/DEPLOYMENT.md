@@ -1,3 +1,23 @@
+# v0.4 upgrade: Pliny and the Quendoris atmospheric visual system
+
+The original procedure below describes the historical v0.3 initial release. For a **v0.4** update, deploy a reviewed, merged, immutable GitHub commit using the existing trusted Arch workstation:
+
+```bash
+git clone https://github.com/quendoris/site.git
+cd site
+git checkout <full-approved-commit-sha>
+python3 tools/check_site.py
+python3 tools/check_atmosphere.py
+sha256sum -c SHA256SUMS
+bash tools/deploy_from_github.sh "$(git rev-parse HEAD)"
+```
+
+The upload still verifies every archived byte and published paper digest on both ends, stages in a root-owned directory, atomically changes the symlink, and verifies HTTP/HTTPS. The release label is `v0.4-<commit12>`. **Nothing deploys automatically from GitHub or a chat session.** The server is not accessible through the GitHub connector. Check the public URL from a phone after activation.
+
+To rollback, supply `initial`, `v0.3-<commit12>`, or a known `v0.4-<commit12>` to `tools/rollback_on_vm.sh`. Do not delete previous releases.
+
+---
+
 # First publication on the HP server
 
 ## 1. GitHub is the independent public transport source
