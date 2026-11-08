@@ -91,6 +91,36 @@ def check(root: Path) -> int:
             if not target.is_file():
                 raise ValueError(f"broken local link: {html}: {raw}")
             checked_links += 1
+    # Editorial/brand regression gates: this quotation is a literal primary-source witness.
+    # These assertions check the intended HTML text, not universal historical authenticity.
+    from xml.etree import ElementTree as ET
+    original = "Quam multa fieri non posse prius quam sunt facta iudicantur?"
+    translation = "Как много вещей считают невозможными, пока они не осуществлены?"
+    home = (dist / "index.html").read_text(encoding="utf-8")
+    if f'<h1 class="hero-quote" lang="la">{original}</h1>' not in home:
+        raise ValueError("verified Pliny Latin homepage heading changed or missing")
+    for exact in (f'<p class="hero-translation" lang="ru">{translation}</p>',
+                  "Плиний Старший", "Naturalis Historia", "книга VII, § 6",
+                  "I век н. э.",
+                  "https://penelope.uchicago.edu/thayer/l/roman/texts/pliny_the_elder/7%2A.html"):
+        if exact not in home:
+            raise ValueError("Pliny source attribution or translation missing: " + exact)
+    original_shape = ("M 35 35 L 386 35 L 386 246 L 316 246 L 316 386 "
+                      "L 245 386 L 245 316 L 176 316 L 176 386 "
+                      "L 105 386 L 105 246 L 35 246 Z "
+                      "M 106 106 L 175 106 L 175 175 L 106 175 Z "
+                      "M 246 106 L 315 106 L 315 175 L 246 175 Z")
+    for asset in ("favicon.svg", "quendoris-mark.svg", "quendoris-inversion.svg"):
+        root_svg = ET.fromstring((dist / "assets" / asset).read_text(encoding="utf-8"))
+        if root_svg.get("viewBox") != "0 0 420 420":
+            raise ValueError("changed Quendoris SVG viewBox: " + asset)
+        paths = root_svg.findall("{http://www.w3.org/2000/svg}path")
+        if len(paths) != 1 or paths[0].get("d") != original_shape or paths[0].get("fill-rule") != "evenodd":
+            raise ValueError("changed original Quendoris silhouette: " + asset)
+    for page in sorted(dist.rglob("*.html")):
+        if 'src="/assets/quendoris-mark.svg"' not in page.read_text(encoding="utf-8"):
+            raise ValueError("original emblem absent from navigation: " + page.as_posix())
+
     print(f"OK: {len(actual)} files, {checked_links} internal references, PDF SHA-256 verified")
     return len(actual)
 

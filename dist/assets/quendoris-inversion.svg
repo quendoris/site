@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-labelledby="title">
+<title id="title">Quendoris — неизменённый знак, инверсия направления градиента</title>
+<defs><linearGradient id="inversion" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6a8b7e"/><stop offset="56%" stop-color="#c9d6b5"/><stop offset="100%" stop-color="#f2f3d2"/></linearGradient></defs>
+<path d="M 35 35 L 386 35 L 386 246 L 316 246 L 316 386 L 245 386 L 245 316 L 176 316 L 176 386 L 105 386 L 105 246 L 35 246 Z M 106 106 L 175 106 L 175 175 L 106 175 Z M 246 106 L 315 106 L 315 175 L 246 175 Z" fill="url(#inversion)" fill-rule="evenodd"/>
+</svg>
