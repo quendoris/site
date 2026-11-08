@@ -27,7 +27,7 @@ echo '=== VERIFY SITE MANIFEST AND LINKS ==='
 python3 "$WORK/source/tools/check_site.py" --root "$WORK/source"
 (cd "$WORK/source" && sha256sum -c SHA256SUMS)
 
-RELEASE_ID="v0.3-${COMMIT:0:12}"
+RELEASE_ID="v0.4-${COMMIT:0:12}"
 mkdir -p "$WORK/release"
 cp -a "$WORK/source/dist/." "$WORK/release/"
 printf '%s\n' "$COMMIT" > "$WORK/release/SOURCE_COMMIT"
